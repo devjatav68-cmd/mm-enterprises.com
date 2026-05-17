@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Login • M&amp;M Enterprises</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <main class="login-page" aria-labelledby="login-title">
+    <div class="bg-decor">
+      <span class="blob b1"></span>
+      <span class="blob b2"></span>
+      <span class="blob b3"></span>
+    </div>
+
+    <section class="login-card" role="region" aria-label="Login form">
+      <div class="brand">
+        <img src="m&mlogo.jpg" alt="M and M Enterprises logo">
+        <h1 id="login-title">Welcome back</h1>
+        <p class="lead">Sign in to access your orders and wishlist</p>
+      </div>
+
+      <form id="loginForm" novalidate>
+        <label>
+          <span class="label-text">Email</span>
+          <input name="email" type="email" required placeholder="Enter email address">
+        </label>
+
+        <label>
+          <span class="label-text">Password</span>
+          <input name="password" type="password" required placeholder="Enter your password">
+        </label>
+
+        <div class="form-row">
+          <label class="remember"><input type="checkbox"> Remember me</label>
+          <a class="forgot" href="#">Forgot password </a>
+        </div>
+
+        <button class="btn-primary" type="submit">Sign in</button>
+      </form>
+
+      <div class="card-footer">
+        <p>New here? <a href="shop.html">Browse the shop</a></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="login.js"></script>
+</body>
+</html>

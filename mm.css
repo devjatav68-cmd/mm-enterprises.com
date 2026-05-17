@@ -1,0 +1,704 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap');
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #ede7df;
+    background: #060606;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+.luxury-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at center, rgba(212, 175, 55, 0.12), transparent 35%),
+    linear-gradient(135deg, #050505, #111111 45%, #070707);
+  color: #f7e7b4;
+  font-family: "Playfair Display", serif;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.luxury-loader.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.luxury-ring {
+  width: 86px;
+  height: 86px;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 50%;
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+}
+
+.luxury-ring::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #d4af37;
+  border-right-color: rgba(212, 175, 55, 0.45);
+  animation: luxurySpin 1.4s linear infinite;
+}
+
+.luxury-ring span {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #d4af37;
+  box-shadow: 0 0 22px rgba(212, 175, 55, 0.9);
+  animation: luxuryPulse 1.4s ease-in-out infinite;
+}
+
+.luxury-loader h2 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #fff6d8;
+}
+
+.luxury-loader p {
+  margin-top: 10px;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(247, 231, 180, 0.75);
+}
+
+@keyframes luxurySpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes luxuryPulse {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+/* Loading Screen
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0b0b0b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOut 2s ease-in-out 2.5s forwards;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(255,255,255,0.12);
+    border-top: 6px solid #d4af37;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loading-screen p {
+    margin-top: 1rem;
+    color: #f0e8df;
+    letter-spacing: 0.08em;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+} */
+
+/* Header */
+.header {
+    background: rgba(8, 8, 8, 0.96);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    animation: slideDown 0.5s ease-out;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo h1 {
+    color: #f3f0eb;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.08em;
+    animation: bounceIn 1s ease-out;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav ul li {
+    margin-left: 2rem;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: #c8c2b8;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav ul li a:hover {
+    color: #d4af37;
+    transform: translateY(-2px);
+}
+
+.cart button {
+    background: #d4af37;
+    color: #111;
+    border: none;
+    padding: 0.75rem 1.4rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.cart button:hover {
+    background: #b58e22;
+    transform: scale(1.03);
+}
+
+/* Hero Section */
+.hero {
+    padding: 110px 0 60px;
+    background: radial-gradient(circle at top left, rgba(212,175,55,0.18), transparent 25%),
+        linear-gradient(135deg, #090909 0%, #121212 55%, #080808 100%);
+    color: #f3f0eb;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.hero-content {
+    flex: 1;
+    animation: slideInLeft 1s ease-out;
+}
+
+.hero-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 3vw, 4rem);
+    margin-bottom: 1rem;
+    line-height: 1.05;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 520px;
+    color: #d8d4cf;
+}
+
+.cta-btn {
+    background: linear-gradient(135deg, #d4af37, #f5d76e);
+    color: #080808;
+    border: none;
+    padding: 1rem 2.2rem;
+    font-size: 1.05rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 20px 50px rgba(212,175,55,0.22);
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+    animation: slideInRight 1s ease-out;
+}
+
+.hero-image img {
+    max-width: 100%;
+    border-radius: 24px;
+    box-shadow: 0 35px 80px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+
+.hero-image img:hover {
+    transform: translateY(-6px) scale(1.01);
+}
+
+.eyebrow {
+    color: #d4af37;
+    letter-spacing: 0.24em;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Products Section */
+.products {
+    padding: 90px 0;
+    background: #050505;
+}
+
+.products h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: clamp(2rem, 2.5vw, 2.8rem);
+    color: #f3f0eb;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background: rgba(20, 20, 20, 0.95);
+    border: 1px solid rgba(212, 175, 55, 0.18);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 22px 70px rgba(0,0,0,0.45);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 1s ease-out;
+    animation-fill-mode: both;
+    backdrop-filter: blur(12px);
+}
+
+.product-card:nth-child(1) { animation-delay: 0.1s; }
+.product-card:nth-child(2) { animation-delay: 0.2s; }
+.product-card:nth-child(3) { animation-delay: 0.3s; }
+.product-card:nth-child(4) { animation-delay: 0.4s; }
+
+.product-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 30px 90px rgba(0,0,0,0.55);
+}
+
+.product-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.04);
+}
+
+.product-card h3 {
+    padding: 1.3rem 1.3rem 0.4rem;
+    font-size: 1.25rem;
+    color: #f3f0eb;
+    font-family: 'Playfair Display', serif;
+}
+
+.product-card p {
+    padding: 0 1.3rem;
+    font-size: 1.1rem;
+    color: #d4af37;
+    font-weight: 700;
+}
+
+.add-to-cart {
+    width: calc(100% - 2.6rem);
+    margin: 1rem 1.3rem 1.3rem;
+    background: #d4af37;
+    color: #111;
+    border: none;
+    padding: 0.95rem;
+    font-size: 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background: #bb8f1f;
+    transform: translateY(-2px);
+}
+
+/* About Section */
+.about {
+    padding: 80px 0;
+    background: #080808;
+}
+
+.about h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: #f3f0eb;
+}
+
+.about p {
+    text-align: center;
+    font-size: 1.15rem;
+    max-width: 660px;
+    margin: 0 auto;
+    color: #d8d4cf;
+}
+
+/* Contact Section */
+.contact {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #050505 0%, #0b0b0b 100%);
+}
+
+.contact h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: #f3f0eb;
+}
+
+#contact-form {
+    max-width: 520px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#contact-form input,
+#contact-form textarea {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    background: rgba(255,255,255,0.04);
+    color: #f3f0eb;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+    color: rgba(243,240,235,0.6);
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+    background: rgba(255,255,255,0.08);
+}
+
+#contact-form button {
+    background: #d4af37;
+    color: #111;
+    border: none;
+    padding: 0.95rem;
+    font-size: 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#contact-form button:hover {
+    background: #bb8f1f;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+    background: #020202;
+    color: #b8b5b0;
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: #121212;
+    margin: 8% auto;
+    padding: 30px;
+    border: 1px solid rgba(212,175,55,0.16);
+    width: 90%;
+    max-width: 520px;
+    border-radius: 24px;
+    box-shadow: 0 35px 90px rgba(0,0,0,0.65);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close {
+    color: #d8d4cf;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #f3f0eb;
+}
+
+#cart-items {
+    margin: 20px 0;
+    color: #f3f0eb;
+}
+
+#checkout-btn {
+    background: #d4af37;
+    color: #111;
+    border: none;
+    padding: 0.95rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#checkout-btn:hover {
+    background: #bb8f1f;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(10,10,10,0.98);
+        box-shadow: 0 2px 20px rgba(0,0,0,0.45);
+        display: none;
+    }
+
+    .nav ul.show {
+        display: flex;
+    }
+
+    .nav ul li {
+        margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav ul li a {
+        display: block;
+        padding: 1rem;
+        color: #f3f0eb;
+    }
+}
+
+/* Additional CSS Animations */
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+    20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% { transform: translate3d(0,0,0); }
+    40%, 43% { transform: translate3d(0, -30px, 0); }
+    70% { transform: translate3d(0, -15px, 0); }
+    90% { transform: translate3d(0, -4px, 0); }
+}
+
+.bounce {
+    animation: bounce 1s infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.rotate {
+    animation: rotate 2s linear infinite;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+/* Slide In from Bottom */
+@keyframes slideInUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.slide-in-up {
+    animation: slideInUp 0.5s ease-out;
+}
+
+/* Zoom In Animation */
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.zoom-in {
+    animation: zoomIn 0.6s ease-out;
+}
+
+/* Flip Animation */
+@keyframes flip {
+    0% { transform: perspective(400px) rotateY(0); }
+    40% { transform: perspective(400px) translateZ(150px) rotateY(170deg); }
+    50% { transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1.04); }
+    80% { transform: perspective(400px) rotateY(360deg) scale(0.95); }
+    100% { transform: perspective(400px) scale(1); }
+}
+
+.flip {
+    animation: flip 1s ease-in-out;
+}
+
+/* Wobble Animation */
+@keyframes wobble {
+    0% { transform: translateX(0%); }
+    15% { transform: translateX(-25%) rotate(-5deg); }
+    30% { transform: translateX(20%) rotate(3deg); }
+    45% { transform: translateX(-15%) rotate(-3deg); }
+    60% { transform: translateX(10%) rotate(2deg); }
+    75% { transform: translateX(-5%) rotate(-1deg); }
+    100% { transform: translateX(0%); }
+}
+
+.wobble {
+    animation: wobble 1s;
+}
+
+/* Heartbeat Animation */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.3); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.3); }
+    70% { transform: scale(1); }
+}
+
+.heartbeat {
+    animation: heartbeat 1.3s ease-in-out infinite both;
+} 

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M&amp;M Enterprises</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="m&m.css">
+  <link rel="shortcut icon" href="m&mlogo.jpg" type="image/x-icon">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="ecommerce-nav" aria-label="Primary navigation">
+      <a class="brand" href="#" aria-label="M and M Enterprises home">
+        <img src="m&mlogo.jpg" alt="M and M Enterprises logo" class="brand-mark">
+        <span class="brand-text">
+          <strong>m&amp;m enterprises</strong>
+          <small>Less Design. More Identity</small>
+        </span>
+      </a>
+
+      <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Toggle menu">
+      <label class="menu-button" for="nav-toggle" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <div class="nav-panel">
+        <ul class="nav-links">
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#new">New Arrivals</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <form class="nav-search" action="#" role="search">
+          <input type="search" placeholder="Search products" aria-label="Search products">
+          <button type="submit">Search</button>
+        </form>
+
+        <div class="nav-actions" aria-label="Shopping actions">
+          <a class="icon-button" href="#wishlist" aria-label="Wishlist">Wish</a>
+          <a class="cart-button" href="#cart" aria-label="Shopping cart">
+            <span>Cart</span>
+            <strong>0</strong>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="home" class="hero-slider" aria-label="Featured M and M Enterprises products">
+    <section class="hero-slide active" style="--hero-image:url('black tshrt.jpg')">
+      <div class="hero-content">
+        <p>Quiet Style. Loud Presence.</p>
+        <h1>m&amp;m enterprises</h1>
+        <span>Premium everyday tees built for gym sessions, street looks, and clean comfort.</span>
+        <a href="shop.html">Start shopping</a>
+      </div>
+    </section>
+
+    <section class="hero-slide" style="--hero-image:url('blue tshirt.jpg')">
+      <div class="hero-content">
+        <p>Royal Blue Drop</p>
+        <h2>Color that moves with you</h2>
+        <span>Fresh fits with soft fabric, sharp color, and a price made for daily wear.</span>
+        <a href="blue-tshirt.html">Shop blue tee</a>
+      </div>
+    </section>
+
+    <section class="hero-slide" style="--hero-image:url('lavender tshir.jpg')">
+      <div class="hero-content">
+        <p>New Arrival</p>
+        <h2>Lavender with attitude</h2>
+        <span>A smooth casual tee for a cleaner, brighter wardrobe rotation.</span>
+        <a href="lavender-tshirt.html">View lavender</a>
+      </div>
+    </section>
+
+    <button class="hero-arrow prev" type="button" aria-label="Previous slide">&lsaquo;</button>
+    <button class="hero-arrow next" type="button" aria-label="Next slide">&rsaquo;</button>
+
+    <div class="hero-dots" aria-label="Hero slide controls">
+      <button class="active" type="button" aria-label="Show slide 1"></button>
+      <button type="button" aria-label="Show slide 2"></button>
+      <button type="button" aria-label="Show slide 3"></button>
+    </div>
+  </main>
+
+  <section class="products-section" id="products" aria-labelledby="products-title">
+    <div class="products-heading">
+      <p>All products</p>
+      <h2 id="products-title">Explore every M&amp;M tee</h2>
+      <span>Simple colors, comfortable fabric, and everyday fits for gym, college, travel, and casual wear.</span>
+    </div>
+
+    <div class="product-showcase">
+      <article class="product-feature">
+        <a class="product-media" href="black-tshirt.html" aria-label="View Rich Black T-shirt">
+          <img src="black tshrt.jpg" alt="Rich Black T-shirt">
+        </a>
+        <div class="product-detail">
+          <p class="product-label">Product 01 / Best seller</p>
+          <h3>Rich Black T-shirt</h3>
+          <span>Clean black shade with a confident everyday look. This tee is made for workouts, street styling, and simple outfits that still feel sharp.</span>
+          <ul class="product-points" aria-label="Rich Black T-shirt details">
+            <li>Premium casual and fitness wear</li>
+            <li>Easy to match with jeans, joggers, or shorts</li>
+            <li>Strong dark color for regular use</li>
+          </ul>
+          <div class="product-footer">
+            <strong>Rs. 350</strong>
+            <a href="black-tshirt.html">View product</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-feature">
+        <a class="product-media" href="blue-tshirt.html" aria-label="View Royal Blue T-shirt">
+          <img src="blue tshirt.jpg" alt="Royal Blue T-shirt">
+        </a>
+        <div class="product-detail">
+          <p class="product-label">Product 02 / Fresh color</p>
+          <h3>Royal Blue T-shirt</h3>
+          <span>A bright blue tee with clean energy. It adds color without feeling loud, making it useful for college, training, and weekend plans.</span>
+          <ul class="product-points" aria-label="Royal Blue T-shirt details">
+            <li>Bright royal blue finish</li>
+            <li>Comfortable for active and casual days</li>
+            <li>Fresh style for daily rotation</li>
+          </ul>
+          <div class="product-footer">
+            <strong>Rs. 350</strong>
+            <a href="blue-tshirt.html">View product</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-feature">
+        <a class="product-media" href="sky-blue-tshirt.html" aria-label="View Sky Blue T-shirt">
+          <img src="sky-blue tshirt.jpg" alt="Sky Blue T-shirt">
+        </a>
+        <div class="product-detail">
+          <p class="product-label">Product 03 / Light style</p>
+          <h3>Sky Blue T-shirt</h3>
+          <span>A cool, easy shade for daytime outfits. The sky blue tee gives a softer look while keeping the same clean M&amp;M comfort.</span>
+          <ul class="product-points" aria-label="Sky Blue T-shirt details">
+            <li>Soft light-blue color</li>
+            <li>Good for warm days and relaxed plans</li>
+            <li>Simple, bright, and easy to wear</li>
+          </ul>
+          <div class="product-footer">
+            <strong>Rs. 350</strong>
+            <a href="sky-blue-tshirt.html">View product</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-feature">
+        <a class="product-media" href="lavender-tshirt.html" aria-label="View Lavender Purple T-shirt">
+          <img src="lavender tshir.jpg" alt="Lavender Purple T-shirt">
+        </a>
+        <div class="product-detail">
+          <p class="product-label">Product 04 / New arrival</p>
+          <h3>Lavender Purple T-shirt</h3>
+          <span>A smooth pastel tee with a modern feel. Lavender gives your wardrobe a cleaner, brighter option for casual wear.</span>
+          <ul class="product-points" aria-label="Lavender Purple T-shirt details">
+            <li>Pastel lavender purple shade</li>
+            <li>Modern look for clean outfits</li>
+            <li>Great for casual and relaxed styling</li>
+          </ul>
+          <div class="product-footer">
+            <strong>Rs. 350</strong>
+            <a href="lavender-tshirt.html">View product</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="site-footer contact-section" id="contact" aria-labelledby="footer-title">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="m&mlogo.jpg" alt="M and M Enterprises logo">
+        <div>
+          <p>Contact details</p>
+          <h2 id="footer-title">Contact no, email and social media</h2>
+          <span>Connect with M&amp;M Enterprises for product details, size help, new arrivals, and order support.</span>
+        </div>
+      </div>
+
+      <div class="footer-contact-grid">
+        <a class="contact-card" href="tel:+9199581 9048" data-copy="+91 99581 9048">
+          <span>Phone</span>
+          <strong>+91 99581 9048</strong>
+          <small>Call for order support</small>
+        </a>
+ 
+        <a class="contact-card" href="mailto:Email-ks9958519048@gmail.com" data-copy="Email-ks9958519048@gmail.com">
+          <span>Email</span>
+          <strong>Email-ks9958519048@gmail.com</strong>
+          <small>Send product questions</small>
+        </a>
+          
+        <a class="contact-card" href="https://wa.me/9958519048" target="_blank" rel="noopener">
+          <span>WhatsApp</span>
+          <strong>Chat on WhatsApp</strong>
+          <small>Fast replies for orders</small>
+        </a>
+      </div>
+
+      <div class="social-heading">
+        <p>Social media accounts</p>
+      </div>
+
+      <div class="footer-socials" aria-label="Social media accounts">
+        <a class="social-link instagram" href="https://www.instagram.com/mnm_store01?igsh=ZWlocGwydnMxMGk=" target="_blank" rel="noopener" aria-label="Instagram">
+          <span class="social-logo">IG</span>
+          <strong>Instagram</strong>
+        </a>
+        <a class="social-link facebook" href="https://www.facebook.com/share/18mUFjmYdR/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+          <span class="social-logo">f</span>
+          <strong>Facebook</strong>
+        </a>
+        <a class="social-link youtube" href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">
+          <span class="social-logo">YT</span>
+          <strong>YouTube</strong>
+        </a>
+      </div>
+
+      <div class="footer-bottom">
+        <span>M&amp;M Enterprises contact and social media</span>
+        <a href="#home">Back to top</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/gh/lumojs/lumojslib@v1.1.0/dist/lumo.min.js"></script>
+  <script src="m&m.js"></script>
+  <script src="backend-client.js"></script>
+</body>
+</html>
