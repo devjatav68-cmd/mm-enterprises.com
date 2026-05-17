@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M&M Enterprises Shop</title>
+  <link rel="shortcut icon" href="m&mlogo.jpg" type="image/x-icon">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    :root {
+      --page: #f8fbff;
+      --surface: #ffffff;
+      --ink: #172033;
+      --muted: #64748b;
+      --line: rgba(47, 128, 237, 0.14);
+      --blue: #2f80ed;
+      --blue-dark: #1556b7;
+      --mint: #38d9a9;
+      --peach: #ffb26b;
+      --shadow: 0 22px 55px rgba(31, 80, 154, 0.14);
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--ink);
+      padding: 48px 20px;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(56, 217, 169, 0.22), transparent 28%),
+        radial-gradient(circle at 92% 8%, rgba(255, 178, 107, 0.22), transparent 26%),
+        linear-gradient(135deg, #ffffff 0%, var(--page) 46%, #edf7ff 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(47, 128, 237, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(47, 128, 237, 0.05) 1px, transparent 1px);
+      background-size: 42px 42px;
+      animation: gridMove 18s linear infinite;
+      pointer-events: none;
+    }
+
+    .shop-title {
+      max-width: 760px;
+      margin: 0 auto 42px;
+      text-align: center;
+      animation: titleDrop 0.8s ease both;
+    }
+
+    .shop-title h1 {
+      margin-bottom: 12px;
+      color: var(--ink);
+      font-size: clamp(36px, 7vw, 64px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .shop-title h1::after {
+      content: "";
+      display: block;
+      width: 86px;
+      height: 4px;
+      margin: 18px auto 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--mint), var(--peach));
+      animation: lineGrow 0.9s 0.25s ease both;
+    }
+
+    .shop-title p {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .shop-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 25px;
+    }
+
+    .shop-card {
+      position: relative;
+      display: flex;
+      min-height: 100%;
+      flex-direction: column;
+      overflow: hidden;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 14px 36px rgba(31, 80, 154, 0.1);
+      text-align: center;
+      text-decoration: none;
+      opacity: 0;
+      transform: translateY(34px);
+      backdrop-filter: blur(14px);
+      animation: fadeUp 0.75s ease forwards;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .shop-card:nth-child(1) { animation-delay: 0.08s; }
+    .shop-card:nth-child(2) { animation-delay: 0.18s; }
+    .shop-card:nth-child(3) { animation-delay: 0.28s; }
+    .shop-card:nth-child(4) { animation-delay: 0.38s; }
+    .shop-card:nth-child(5) { animation-delay: 0.48s; }
+
+    .shop-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(47, 128, 237, 0.15) 38%, rgba(56, 217, 169, 0.2) 50%, transparent 62%);
+      transform: translateX(-120%);
+      transition: transform 0.65s ease;
+      pointer-events: none;
+    }
+
+    .shop-card:hover::before {
+      transform: translateX(120%);
+    }
+
+    .shop-card:hover {
+      border-color: rgba(47, 128, 237, 0.38);
+      box-shadow: var(--shadow);
+      transform: translateY(-10px);
+    }
+
+    .shop-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 17px;
+      box-shadow: 0 16px 28px rgba(31, 80, 154, 0.12);
+      transition: transform 0.45s ease, filter 0.45s ease;
+    }
+
+    .shop-card:hover img {
+      transform: scale(1.045);
+      filter: saturate(1.08) brightness(1.03);
+    }
+
+    .shop-card h3 {
+      position: relative;
+      z-index: 1;
+      color: var(--ink);
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .shop-card p {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      position: relative;
+      z-index: 1;
+      display: block;
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--blue-dark);
+      margin-bottom: 15px;
+    }
+
+    .shop-card button {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      min-height: 44px;
+      padding: 11px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(135deg, var(--blue), #4dabf7);
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(47, 128, 237, 0.22);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    .shop-card button:hover {
+      background: linear-gradient(135deg, var(--blue-dark), var(--mint));
+      box-shadow: 0 16px 28px rgba(47, 128, 237, 0.28);
+      transform: translateY(-2px);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--ink);
+      padding: 12px 20px;
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      font-weight: bold;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      backdrop-filter: blur(12px);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes titleDrop {
+      from {
+        opacity: 0;
+        transform: translateY(-22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes lineGrow {
+      from {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      to {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes gridMove {
+      from {
+        background-position: 0 0;
+      }
+      to {
+        background-position: 42px 42px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 34px 14px;
+      }
+
+      .shop-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .shop-card img {
+        height: 220px;
+      }
+
+      .toast {
+        right: 14px;
+        bottom: 14px;
+        max-width: calc(100vw - 28px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="shop-title">
+    <h1>M&M Enterprises</h1>
+    <p>Discover our premium collection of fitness and casual wear.</p>
+  </section>
+
+  <section class="shop-grid">
+    <a
+     href="black-tshirt.html"
+     class="shop-card">
+      <img src="black tshrt.jpg" alt="Black T-shirt">
+      <h3>Rich Black T-shirts</h3>
+      <p>Premium Black fitness and black t-shirt.</p>
+      <span class="price">₹350</span>
+      <button>Add to Cart</button>
+    </a
+    >
+
+    <a href="blue-tshirt.html" class="shop-card">
+      <img src="blue tshirt.jpg" alt="Blue T-shirt">
+      <h3>Royal Blue T-shirt</h3>
+      <p>Premium Royal Blue fitness and casual t-shirt.</p>
+      <span class="price">₹350</span>
+      <button>Add to Cart</button>
+    </a>
+
+    <a href="sky-blue-tshirt.html" class="shop-card">
+      <img src="sky-blue tshirt.jpg" alt="Sky-Blue T-shirt">
+      <h3>Sky-Blue T-shirt</h3>
+      <p>Premium Sky-Blue fitness and casual t-shirt.</p>
+      <span class="price">₹350</span>
+      <button>Add to Cart</button>
+    </a>
+
+    <a href="lavender-tshirt.html" class="shop-card">
+      <img src="lavender tshir.jpg" alt="purple T-shirt">
+      <h3>Lavender Purple T-shirt</h3>
+      <p>Premium Purple fitness and casual t-shirt.</p>
+      <span class="price">₹350</span>
+      <button>Add to Cart</button>
+    </a>
+
+    <!-- <div class="shop-card">
+      <img src="https://via.placeholder.com/300x200/111111/00f7ff?text=Hoodie" alt="Hoodie">
+      <h3>Black Hoodie</h3>
+      <p>Soft fabric with modern fitting.</p>
+      <span class="price">₹1,299</span>
+      <button>Add to Cart</button>
+    </div> -->
+  </section>
+
+  <div class="toast" id="toast">Added to cart</div>
+
+  <script>
+    const buttons = document.querySelectorAll(".shop-card button");
+    const toast = document.getElementById("toast");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        button.innerText = "Added";
+        button.style.background = "#ffc857";
+
+        toast.classList.add("show");
+
+        setTimeout(() => {
+          toast.classList.remove("show");
+          button.innerText = "Add to Cart";
+          button.style.background = "";
+        }, 1500);
+      });
+    });
+    if (window.lumo?.snake) {
+      lumo.snake({
+        color: "#2f80ed",
+        trailCount: 12,
+        magnetic: true,
+        hideDefaultCursor: true
+      });
+    }
+
+
+    if (window.lumo?.textReveal) {
+      lumo.textReveal(".shop-title", {
+        preset: "slide"
+      });
+    }
+
+  </script>
+  <script src="backend-client.js"></script>
+
+</body>
+</html>

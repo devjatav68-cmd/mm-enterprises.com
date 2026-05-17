@@ -1,0 +1,17 @@
+{
+  "name": "mm-enterprises-store",
+  "version": "1.0.0",
+  "description": "M&M Enterprises storefront backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "store",
+    "backend",
+    "ecommerce"
+  ],
+  "author": "",
+  "license": "UNLICENSED"
+}
